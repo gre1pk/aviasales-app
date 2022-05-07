@@ -22,7 +22,8 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "indent": ["error", 2],
+    "indent": "off",
+    // "indent": ["error", 2],
     "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
