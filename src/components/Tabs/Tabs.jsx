@@ -4,22 +4,22 @@ import select from '../../store/actions/tabsActions'
 
 import classes from './Tabs.module.scss'
 
-function Tabs() {
-  const filtersBtn = [
-    {
-      name: 'Самый дешевый',
-      value: 'cheap',
-    },
-    {
-      name: 'Самый быстрый',
-      value: 'fast',
-    },
-    {
-      name: 'Оптимальный',
-      value: 'optimal',
-    },
-  ]
+const filtersBtn = [
+  {
+    name: 'Самый дешевый',
+    value: 'cheap',
+  },
+  {
+    name: 'Самый быстрый',
+    value: 'fast',
+  },
+  {
+    name: 'Оптимальный',
+    value: 'optimal',
+  },
+]
 
+function Tabs() {
   const { ticketSort } = useSelector((state) => state.tabsReducer)
   const dispatch = useDispatch()
 
