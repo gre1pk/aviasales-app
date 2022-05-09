@@ -1,6 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectAll, selectNot, selectOne, selectThree, selectTwo } from '../../store/actions/filterActions'
+import {
+  selectAll,
+  selectAllOff,
+  selectNot,
+  selectOne,
+  selectThree,
+  selectTwo,
+} from '../../store/actions/filterActions'
 
 import classes from './Filter.module.scss'
 
@@ -8,6 +15,14 @@ function Filter() {
   const { transfersNot, transfersOne, transfersTwo, transfersThree } = useSelector((state) => state.filterReducer)
   const dispatch = useDispatch()
   const allCheck = transfersNot && transfersOne && transfersTwo && transfersThree
+
+  const onAllHandler = () => {
+    if (!allCheck) {
+      dispatch(selectAll())
+    } else {
+      dispatch(selectAllOff())
+    }
+  }
   return (
     <div className={classes.container}>
       <p className={classes.text}>Количество пересадок</p>
@@ -17,7 +32,7 @@ function Filter() {
           className={classes['check-input']}
           type="checkbox"
           checked={allCheck}
-          onChange={() => dispatch(selectAll())}
+          onChange={() => dispatch(onAllHandler)}
         />
         <span className={classes['check-box']} />
         Все

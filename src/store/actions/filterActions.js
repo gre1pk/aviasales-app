@@ -2,6 +2,10 @@ export const selectAll = () => ({
   type: 'SELECT_ALL',
 })
 
+export const selectAllOff = () => ({
+  type: 'SELECT_ALL_OFF',
+})
+
 export const selectNot = () => ({
   type: 'SELECT_NOT',
 })
