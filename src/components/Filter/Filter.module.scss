@@ -12,6 +12,9 @@
 }
 .text {
   padding: 20px;
+  @include media-tablet {
+    display: none;
+  }
 }
 .check-input {
   position: absolute;
