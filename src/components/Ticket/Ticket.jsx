@@ -15,7 +15,6 @@ function Ticket({ price, there, back, carrier }) {
     duration: durationBack,
     stops: stopsBack,
   } = back
-
   const startTimeThere = getTimeFormat(date)
   const differenceThere = getTimeFromMins(duration)
   const endTimeThere = getTimeFormat(addMinutes(new Date(date), duration))
@@ -67,8 +66,8 @@ function Ticket({ price, there, back, carrier }) {
 
 Ticket.propTypes = {
   price: PropTypes.number.isRequired,
-  there: PropTypes.objectOf(PropTypes.arrayOf()).isRequired,
-  back: PropTypes.objectOf(PropTypes.arrayOf()).isRequired,
+  there: PropTypes.shape({}).isRequired,
+  back: PropTypes.shape({}).isRequired,
   carrier: PropTypes.string.isRequired,
 }
 export default Ticket

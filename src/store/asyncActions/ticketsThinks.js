@@ -14,5 +14,9 @@ export const getTicketsList = (id) => (dispatch) => {
   aviaServices
     .getTicket(id)
     .then((res) => dispatch(setTicketsList(res)))
-    .catch(() => dispatch(loadError()))
+    .catch((err) => {
+      if (err.message !== 'Error: 500') {
+        dispatch(loadError())
+      }
+    })
 }

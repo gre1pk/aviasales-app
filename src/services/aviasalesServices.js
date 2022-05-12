@@ -5,7 +5,7 @@ export default class AviaServices {
     try {
       const result = await fetch(`${this.baseURL}/${url}`)
       if (!result.ok) {
-        throw new Error(`${result.status}`)
+        throw new Error(result.status)
       }
       return await result.json()
     } catch (err) {
