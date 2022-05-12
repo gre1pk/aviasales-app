@@ -9,6 +9,7 @@ import {
   selectTwo,
 } from '../../store/actions/filterActions'
 
+import FilterCheckBox from './FilterCheckBox'
 import classes from './Filter.module.scss'
 
 function Filter() {
@@ -26,58 +27,31 @@ function Filter() {
   return (
     <div className={classes.container}>
       <p className={classes.text}>Количество пересадок</p>
-      <label className={classes.option} htmlFor="all">
-        <input
-          id="all"
-          className={classes['check-input']}
-          type="checkbox"
-          checked={allCheck}
-          onChange={() => dispatch(onAllHandler)}
-        />
-        <span className={classes['check-box']} />
-        Все
-      </label>
-      <label className={classes.option} htmlFor="transfersNot">
-        <input
-          className={classes['check-input']}
-          id="transfersNot"
-          type="checkbox"
-          checked={transfersNot}
-          onChange={() => dispatch(selectNot())}
-        />
-        <span className={classes['check-box']} />
-        Без пересадок
-      </label>
-      <label className={classes.option} htmlFor="transfersOne">
-        <input
-          className={classes['check-input']}
-          id="transfersOne"
-          type="checkbox"
-          checked={transfersOne}
-          onChange={() => dispatch(selectOne())}
-        />
-        <span className={classes['check-box']} />1 пересадка
-      </label>
-      <label className={classes.option} htmlFor="transfersTwo">
-        <input
-          className={classes['check-input']}
-          id="transfersTwo"
-          type="checkbox"
-          checked={transfersTwo}
-          onChange={() => dispatch(selectTwo())}
-        />
-        <span className={classes['check-box']} />2 пересадки
-      </label>
-      <label className={classes.option} htmlFor="transfersThree">
-        <input
-          className={classes['check-input']}
-          id="transfersThree"
-          type="checkbox"
-          checked={transfersThree}
-          onChange={() => dispatch(selectThree())}
-        />
-        <span className={classes['check-box']} />3 пересадки
-      </label>
+      <FilterCheckBox id="all" checked={allCheck} onChange={() => dispatch(onAllHandler)} text="Все" />
+      <FilterCheckBox
+        id="transfersNot"
+        checked={transfersNot}
+        onChange={() => dispatch(selectNot())}
+        text="Без пересадок"
+      />
+      <FilterCheckBox
+        id="transfersOne"
+        checked={transfersOne}
+        onChange={() => dispatch(selectOne())}
+        text="1 пересадка"
+      />
+      <FilterCheckBox
+        id="transfersTwo"
+        checked={transfersTwo}
+        onChange={() => dispatch(selectTwo())}
+        text="2 пересадки"
+      />
+      <FilterCheckBox
+        id="transfersThree"
+        checked={transfersThree}
+        onChange={() => dispatch(selectThree())}
+        text="3 пересадки"
+      />
     </div>
   )
 }
