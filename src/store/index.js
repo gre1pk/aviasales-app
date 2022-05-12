@@ -4,10 +4,12 @@ import thunk from 'redux-thunk'
 
 import tabsReducer from './reducers/tabsReducer'
 import filterReducer from './reducers/filterReducer'
+import ticketReducer from './reducers/ticketReducer'
 
 const rootReducer = combineReducers({
   tabsReducer,
   filterReducer,
+  ticketReducer,
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
